@@ -1,25 +1,40 @@
 import express from "express";
-import data from "./data.js";
+import mongoose from "mongoose";
+import dotenv from 'dotenv'
+import productRouter from "./routers/productRouter.js";
+import userRouter from "./routers/userRouter.js";
 
+
+dotenv.config()
 const app = express();
 
-app.get("/api/products", (req, res) => {
-  res.send(data.products);
-});
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-app.get("/api/products/:id", (req, res) => {
-  const product = data.products.find((x) => x._id === req.params.id);
-  if (product) {
-    res.send(product);
-  } else {
-    return res.status(404).send({ message: "Product not found" });
-  }
-});
+
+const uri = "mongodb+srv://lumas89:lumas89@lumas89.y8ptm.mongodb.net/data?retryWrites=true&w=majority"
+mongoose.connect(process.env.MONGODB_URL || uri
+, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+}).then( console.log('DB is connected'))
+.catch(err => console.log(err))
+//conectar a mongoose
+
+
+
+app.use("/api/users", userRouter);
+app.use("/api/products", productRouter);
 app.get("/", (req, res) => {
   res.send("Server is ready");
 });
 
+/* app.use((err, req, res) => {
+  res.status(500).send({ message: err.message });
+}); */
+
 const port = process.env.PORT || 5000;
 app.listen(port, () => {
-  console.log(`Server is running on port: ${port}`);
+  console.log(`Serve at http://localhost:${port}`);
 });

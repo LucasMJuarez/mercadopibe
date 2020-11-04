@@ -1,7 +1,28 @@
+import bcrypt from "bcryptjs";
+
 const data = {
+  users: [
+    {
+      name: "Lucas",
+      email: "lumas9@gmail.com",
+      password: bcrypt.hashSync("1147", 8),
+      isAdmin: true,
+    },
+    {
+      name: "Jonh",
+      email: "johasn@gmail.com",
+      password: bcrypt.hashSync("1247", 8),
+      isAdmin: false,
+    },
+    {
+      name: "Maxu",
+      email: "max@gmail.com",
+      password: bcrypt.hashSync("1247", 8),
+      isAdmin: false,
+    },
+  ],
   products: [
     {
-      _id: "1",
       name: "Moto E5",
       category: "Celulares",
       image: "/images/p2.jpg",
@@ -13,7 +34,6 @@ const data = {
       description: "high quality product",
     },
     {
-      _id: "2",
       name: "Moto E6",
       category: "Celulares",
       image: "/images/p1.jpg",
@@ -25,7 +45,6 @@ const data = {
       description: "high quality product",
     },
     {
-      _id: "3",
       name: "Moto G5",
       category: "Celulares",
       image: "/images/p3.jpg",
@@ -37,7 +56,6 @@ const data = {
       description: "high quality product",
     },
     {
-      _id: "4",
       name: "Moto G6",
       category: "Celulares",
       image: "/images/p4.jpg",
@@ -49,7 +67,6 @@ const data = {
       description: "high quality product",
     },
     {
-      _id: "5",
       name: "Moto G7",
       category: "Celulares",
       image: "/images/p5.jpg",
@@ -61,7 +78,6 @@ const data = {
       description: "high quality product",
     },
     {
-      _id: "6",
       name: "Moto G8",
       category: "Celulares",
       image: "/images/p6.jpg",
