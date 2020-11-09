@@ -5,7 +5,7 @@ import {
   productListReducer,
   productDetailsReducer,
 } from "./reducers/productReducers";
-import { userSigninReducer } from "./reducers/userReducers";
+import { userRegisterReducer, userSigninReducer } from "./reducers/userReducers";
 //import data from "./data";
 
 const initialState = {
@@ -22,7 +22,8 @@ const reducer = combineReducers({
   productList: productListReducer,
   productDetails: productDetailsReducer,
   cart: cartReducer,
-  userSignin: userSigninReducer  //dicho user Signin sera usado en los Screens o vistas en su handler function
+  userSignin: userSigninReducer , //dicho user Signin sera usado en los Screens o vistas en su handler function
+  userRegister: userRegisterReducer
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
