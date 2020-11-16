@@ -5,6 +5,7 @@ import { signout } from "./actions/userActions";
 import CartScreen from "./screen/CartScreen";
 import HomeScreen from "./screen/HomeScreen";
 import PaymentMethodScreen from "./screen/PaymentMethodScreen";
+import PlaceOrderScreen from "./screen/PlaceOrderScreen";
 import ProductScreen from "./screen/ProductScreen";
 import RegisterScreen from "./screen/RegisterScreen";
 import ShippingAddressScreen from "./screen/ShippingAddressScreen";
@@ -58,7 +59,7 @@ function App() {
           <Route path="/register" component={RegisterScreen}></Route>
           <Route path="/shipping" component={ShippingAddressScreen}></Route>
           <Route path="/payment" component={PaymentMethodScreen}></Route>
-
+          <Route path="/placeorder" component={PlaceOrderScreen}></Route>
         </main>
         <footer className="row center">All right reserved</footer>
       </div>
