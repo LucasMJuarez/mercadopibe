@@ -4,7 +4,6 @@ import { CART_EMPTY } from "../constants/cartConstants";
 import {
   ORDER_CREATE_FAIL,
   ORDER_CREATE_REQUEST,
-  ORDER_CREATE_RESET,
   ORDER_CREATE_SUCCESS,
 } from "../constants/orderConstants";
 
@@ -19,7 +18,7 @@ export const createOrder = (order) => async (dispatch, getState) => {
         Authorization: `Bearer ${userInfo.token}`,
       },
     });
-    dispatch({ type: ORDER_CREATE_SUCCESS, payload: data.order });
+    dispatch({ type: ORDER_CREATE_SUCCESS, payload: data.order }); 
     dispatch({ type: CART_EMPTY });
     localStorage.removeItem('cartItems')
   } catch (error) {
